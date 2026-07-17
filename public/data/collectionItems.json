@@ -1,0 +1,90 @@
+[
+  {
+    "id": "1",
+    "title": "1999 Base Set Charizard Holo Pokémon Card",
+    "image": "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=500&auto=format&fit=crop&q=60",
+    "category": "Trading Cards",
+    "condition": "PSA 9 Mint",
+    "estimatedValue": 75000,
+    "acquiredDate": "2023-05-14",
+    "location": "Display Case A",
+    "collectionType": "Owned"
+  },
+  {
+    "id": "2",
+    "title": "Batman: The Dark Knight Returns #1 First Printing",
+    "image": "https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?w=500&auto=format&fit=crop&q=60",
+    "category": "Comics",
+    "condition": "CGC 9.6 Near Mint",
+    "estimatedValue": 25000,
+    "acquiredDate": "2024-02-18",
+    "location": "Comic Binder 1",
+    "collectionType": "Wishlist"
+  },
+  {
+    "id": "3",
+    "title": "Lego Star Wars Millennium Falcon UCS",
+    "image": "https://images.unsplash.com/photo-1601987077677-5346c0c57d3f?w=600&auto=format&fit=crop&q=80",
+    "category": "Lego",
+    "condition": "New In Box (NIB)",
+    "estimatedValue": 80000,
+    "acquiredDate": "2025-11-30",
+    "location": "Top Shelf",
+    "collectionType": "Owned"
+  },
+  {
+    "id": "4",
+    "title": "1921 Morgan Silver Dollar Vintage Coin",
+    "image": "https://images.unsplash.com/photo-1621972750749-0fbb1abb7736?w=500&auto=format&fit=crop&q=60",
+    "category": "Coins",
+    "condition": "EF-45 Extremely Fine",
+    "estimatedValue": 4500,
+    "acquiredDate": "2022-09-05",
+    "location": "Safe Box",
+    "collectionType": "Selling"
+  },
+  {
+    "id": "5",
+    "title": "1995 Hot Wheels '67 Camaro Treasure Hunt",
+    "image": "https://images.unsplash.com/photo-1581235720704-06d3acfcb36f?w=500&auto=format&fit=crop&q=60",
+    "category": "Hot Wheels",
+    "condition": "Mint on Card",
+    "estimatedValue": 12000,
+    "acquiredDate": "2024-06-22",
+    "location": "Wall Rack B",
+    "collectionType": "Owned"
+  },
+  {
+    "id": "6",
+    "title": "Signed Stan Lee Iron Man Funko Pop",
+    "image": "https://images.unsplash.com/photo-1594787318286-3d835c1d207f?w=500&auto=format&fit=crop&q=60",
+    "category": "Funko Pop",
+    "condition": "Mint in Box",
+    "estimatedValue": 15000,
+    "acquiredDate": "2023-10-12",
+    "location": "Display Case B",
+    "collectionType": "Wishlist"
+  },
+  {
+    "id": "7",
+    "title": "Classic 1995 Spawn Action Figure",
+    "image": "https://images.unsplash.com/photo-1608889175250-c3b0c1667d3a?w=500&auto=format&fit=crop&q=60",
+    "category": "Action Figures",
+    "condition": "Near Mint",
+    "estimatedValue": 3500,
+    "acquiredDate": "2024-01-15",
+    "location": "Shelf 2",
+    "collectionType": "Selling"
+  },
+  {
+    "id": "8",
+    "title": "Michael Jordan 1986 Fleer Rookie Trading Card",
+    "image": "https://images.unsplash.com/photo-1518063319789-7217e6706b04?w=500&auto=format&fit=crop&q=60",
+    "category": "Trading Cards",
+    "condition": "BGS 9.5 Gem Mint",
+    "estimatedValue": 120000,
+    "acquiredDate": "2025-04-03",
+    "location": "Safe Box",
+    "collectionType": "Owned"
+  }
+]

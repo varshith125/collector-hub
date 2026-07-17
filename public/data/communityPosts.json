@@ -1,0 +1,95 @@
+[
+  {
+    "id": "1",
+    "userName": "Alex Mercer",
+    "userAvatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop&q=80",
+    "title": "Finally completed my vintage Nintendo collection!",
+    "description": "After 3 years of hunting, I finally got my hands on a mint condition NES console in box. It looks beautiful alongside the others!",
+    "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&auto=format&fit=crop&q=80",
+    "likes": 342,
+    "comments": 2,
+    "postedAt": "2 hours ago",
+    "category": "Video Games",
+    "commentsList": [
+      { "id": "1-1", "userName": "CollectorMax", "content": "Incredible find! How long did it take to grade?", "commentedAt": "1 hour ago" },
+      { "id": "1-2", "userName": "Vintages_Rules", "content": "Absolutely pristine. Congrats!", "commentedAt": "30 mins ago" }
+    ]
+  },
+  {
+    "id": "2",
+    "userName": "Sarah Jenkins",
+    "userAvatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80",
+    "title": "Check out this rare 1st Edition Holo Gengar",
+    "description": "Just got this graded by PSA and it came back as a PSA 9! So thrilled with this addition to my ghost-type collection.",
+    "image": "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=600&auto=format&fit=crop&q=80",
+    "likes": 215,
+    "comments": 1,
+    "postedAt": "5 hours ago",
+    "category": "Trading Cards",
+    "commentsList": [
+      { "id": "2-1", "userName": "PokeMaster", "content": "Holo Gengar is legendary. PSA 9 is amazing!", "commentedAt": "4 hours ago" }
+    ]
+  },
+  {
+    "id": "3",
+    "userName": "Marcus Vance",
+    "userAvatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80",
+    "title": "My comic book wall is finally ready",
+    "description": "Used UV-resistant floating shelves to display my favorite Golden Age and Silver Age covers. Let me know what you think!",
+    "image": "https://images.unsplash.com/photo-1594909122845-11baa439b7bf?w=600&auto=format&fit=crop&q=80",
+    "likes": 512,
+    "comments": 2,
+    "postedAt": "1 day ago",
+    "category": "Comics",
+    "commentsList": [
+      { "id": "3-1", "userName": "ComicsCollector", "content": "Floating shelves are the way to go! Looks so clean.", "commentedAt": "18 hours ago" },
+      { "id": "3-2", "userName": "SilverAgeFan", "content": "Beautiful covers. ASM #129 is my holy grail.", "commentedAt": "12 hours ago" }
+    ]
+  },
+  {
+    "id": "4",
+    "userName": "Elena Rostova",
+    "userAvatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&auto=format&fit=crop&q=80",
+    "title": "Lego Rivendell build completed!",
+    "description": "Over 6,000 pieces of pure joy. The level of detail on this Lord of the Rings set is absolutely mind-blowing. Highly recommend it.",
+    "image": "https://images.unsplash.com/photo-1616440347437-b1c73416efc2?w=600&auto=format&fit=crop&q=80",
+    "likes": 830,
+    "comments": 2,
+    "postedAt": "2 days ago",
+    "category": "Lego",
+    "commentsList": [
+      { "id": "4-1", "userName": "LegoBuilder99", "content": "6,000 pieces! How many days did it take you?", "commentedAt": "1 day ago" },
+      { "id": "4-2", "userName": "TolkienFan", "content": "Rivendell looks absolutely majestic. Lord of the Rings sets are top tier.", "commentedAt": "12 hours ago" }
+    ]
+  },
+  {
+    "id": "5",
+    "userName": "David Kim",
+    "userAvatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&auto=format&fit=crop&q=80",
+    "title": "Mail day! New Hot Wheels treasure hunt found",
+    "description": "Lucky store visit this morning. Found this Super Treasure Hunt '71 Datsun 510 sitting right on the front peg. Happy hunting, everyone!",
+    "image": "https://images.unsplash.com/photo-1594787318286-3d835c1d207f?w=600&auto=format&fit=crop&q=80",
+    "likes": 128,
+    "comments": 1,
+    "postedAt": "3 days ago",
+    "category": "Hot Wheels",
+    "commentsList": [
+      { "id": "5-1", "userName": "HotWheelsHunter", "content": "Super treasure hunt Datsun 510! Absolute luck!", "commentedAt": "2 days ago" }
+    ]
+  },
+  {
+    "id": "6",
+    "userName": "Chloe Bennet",
+    "userAvatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&auto=format&fit=crop&q=80",
+    "title": "Displaying my vintage Roman Coins",
+    "description": "Just finished organizing my Denarii collection in a new velvet tray. It's crazy to hold pieces of history from 2,000 years ago.",
+    "image": "https://images.unsplash.com/photo-1621972750749-0fbb1abb7736?w=600&auto=format&fit=crop&q=80",
+    "likes": 419,
+    "comments": 1,
+    "postedAt": "4 days ago",
+    "category": "Coins",
+    "commentsList": [
+      { "id": "6-1", "userName": "HistoryBuff", "content": "Beautiful Denarii. Which emperors are depicted?", "commentedAt": "3 days ago" }
+    ]
+  }
+]
