@@ -120,14 +120,14 @@ const Marketplace = () => {
             {/* Product Details Modal */}
             {selectedProduct && (
                 <div 
-                    className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm"
+                    className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/60 backdrop-blur-sm overflow-y-auto"
                     role="dialog"
                     aria-modal="true"
                     aria-labelledby="modal-title"
                 >
-                    <div className="relative w-full max-w-3xl rounded-2xl bg-white shadow-2xl overflow-hidden border border-slate-200 flex flex-col md:flex-row max-h-[90vh] dark:border-slate-800 dark:bg-slate-900">
+                    <div className="relative w-full max-w-3xl rounded-2xl bg-white shadow-2xl overflow-hidden border border-slate-200 flex flex-col md:flex-row max-h-[92vh] my-auto dark:border-slate-800 dark:bg-slate-900">
                         {/* Left/Top: Image */}
-                        <div className="w-full md:w-1/2 bg-slate-50 relative aspect-[4/3] md:aspect-auto dark:bg-slate-800">
+                        <div className="w-full md:w-1/2 bg-slate-50 relative aspect-[16/9] sm:aspect-[4/3] md:aspect-auto dark:bg-slate-800 shrink-0">
                             <img 
                                 src={selectedProduct.image || "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=500&q=80"} 
                                 alt={selectedProduct.title}
@@ -139,30 +139,30 @@ const Marketplace = () => {
                         </div>
 
                         {/* Right/Bottom: Information */}
-                        <div className="p-6 md:p-8 w-full md:w-1/2 flex flex-col justify-between overflow-y-auto">
+                        <div className="p-4 sm:p-6 md:p-8 w-full md:w-1/2 flex flex-col justify-between overflow-y-auto">
                             <div>
-                                <div className="flex justify-between items-start gap-4">
+                                <div className="flex justify-between items-center gap-4">
                                     <span className="inline-flex items-center rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-semibold text-slate-600 dark:bg-slate-800 dark:text-slate-300">
                                         {selectedProduct.category}
                                     </span>
                                     <button 
                                         onClick={() => setSelectedProduct(null)}
-                                        className="text-slate-400 hover:text-slate-650 dark:text-slate-500 dark:hover:text-slate-300 text-2xl font-semibold leading-none cursor-pointer"
+                                        className="text-slate-400 hover:text-slate-650 dark:text-slate-500 dark:hover:text-slate-300 min-w-[44px] min-h-[44px] flex items-center justify-center text-2xl font-semibold leading-none cursor-pointer"
                                         aria-label="Close modal"
                                     >
                                         &times;
                                     </button>
                                 </div>
 
-                                <h2 id="modal-title" className="mt-3 text-xl font-bold text-slate-900 sm:text-2xl leading-snug dark:text-white">
+                                <h2 id="modal-title" className="mt-3 text-lg font-bold text-slate-900 sm:text-2xl leading-snug dark:text-white">
                                     {selectedProduct.title}
                                 </h2>
 
-                                <p className="mt-2 text-2xl font-extrabold text-slate-900 dark:text-white">
+                                <p className="mt-2 text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white">
                                     {formatCurrency(selectedProduct.price)}
                                 </p>
 
-                                <div className="mt-6 space-y-4 border-t border-slate-100 pt-4 text-sm dark:border-slate-800">
+                                <div className="mt-4 sm:mt-6 space-y-3 sm:space-y-4 border-t border-slate-100 pt-4 text-xs sm:text-sm dark:border-slate-800">
                                     <div className="flex justify-between">
                                         <span className="text-slate-500 font-medium dark:text-slate-400">Condition</span>
                                         <span className="text-slate-900 font-semibold dark:text-slate-200">{selectedProduct.condition}</span>
@@ -178,14 +178,14 @@ const Marketplace = () => {
                                 </div>
                             </div>
 
-                            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                            <div className="mt-6 sm:mt-8 flex flex-col gap-2.5 sm:flex-row">
                                 <button
                                     type="button"
                                     onClick={() => {
                                         addItemToCollection(selectedProduct, "Owned");
                                         setSelectedProduct(null);
                                     }}
-                                    className="flex-1 rounded-xl bg-slate-950 px-4 py-3 text-sm font-semibold text-white outline-none hover:bg-slate-800 focus:ring-2 focus:ring-slate-900/20 cursor-pointer text-center dark:bg-slate-100 dark:text-slate-950 dark:hover:bg-slate-200"
+                                    className="flex-1 min-h-[44px] inline-flex items-center justify-center rounded-xl bg-slate-950 px-4 py-3 text-sm font-semibold text-white outline-none hover:bg-slate-800 focus:ring-2 focus:ring-slate-900/20 cursor-pointer text-center dark:bg-slate-100 dark:text-slate-950 dark:hover:bg-slate-200"
                                 >
                                     Add to Collection
                                 </button>
@@ -195,7 +195,7 @@ const Marketplace = () => {
                                         addItemToCollection(selectedProduct, "Wishlist");
                                         setSelectedProduct(null);
                                     }}
-                                    className="flex-1 rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm font-semibold text-slate-700 outline-none hover:bg-slate-50 focus:ring-2 focus:ring-slate-950/20 cursor-pointer text-center dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-800"
+                                    className="flex-1 min-h-[44px] inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm font-semibold text-slate-700 outline-none hover:bg-slate-50 focus:ring-2 focus:ring-slate-950/20 cursor-pointer text-center dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-800"
                                 >
                                     Wishlist
                                 </button>

@@ -26,17 +26,17 @@ const CollectionStats = ({
         Collection statistics
       </h2>
 
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+      <div className="grid grid-cols-1 gap-4 sm:gap-6 sm:grid-cols-2">
         {stats.map((stat) => (
           <div
             key={stat.label}
-            className="flex flex-col items-center justify-center rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-200 hover:border-slate-300 hover:shadow-md dark:border-slate-800 dark:bg-slate-900"
+            className="flex flex-col items-center justify-center rounded-xl border border-slate-200 bg-white p-4 sm:p-6 shadow-sm transition-all duration-200 hover:border-slate-300 hover:shadow-md dark:border-slate-800 dark:bg-slate-900"
           >
-            <span className="text-sm font-medium uppercase tracking-wider text-slate-500 dark:text-slate-400">
+            <span className="text-xs sm:text-sm font-medium uppercase tracking-wider text-slate-500 dark:text-slate-400">
               {stat.label}
             </span>
 
-            <span className="mt-2 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl dark:text-white">
+            <span className="mt-1.5 sm:mt-2 text-2xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-white">
               {stat.value}
             </span>
           </div>

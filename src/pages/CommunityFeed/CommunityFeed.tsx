@@ -36,13 +36,13 @@ const CommunityFeed = () => {
   const fallbackImage = "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=500&q=80";
 
   return (
-    <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+    <main className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8 py-4 sm:py-8">
       {/* Header section */}
-      <div className="border-b border-slate-200 pb-6 mb-8 dark:border-slate-800">
-        <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl dark:text-white">
+      <div className="border-b border-slate-200 pb-4 sm:pb-6 mb-6 sm:mb-8 dark:border-slate-800">
+        <h1 className="text-2xl font-extrabold tracking-tight text-slate-900 sm:text-4xl dark:text-white">
           Community Feed
         </h1>
-        <p className="mt-2 text-base text-slate-600 sm:text-lg dark:text-slate-400">
+        <p className="mt-1 sm:mt-2 text-sm text-slate-600 sm:text-lg dark:text-slate-400">
           Discover what collectors are sharing.
         </p>
       </div>
@@ -59,14 +59,14 @@ const CommunityFeed = () => {
       ) : (
         <>
           {/* Search and Filters */}
-          <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <div className="relative flex-1 max-w-md">
+          <div className="mb-6 sm:mb-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <div className="relative flex-1 max-w-full sm:max-w-md">
               <input
                 type="text"
                 placeholder="Search posts by title, content, or user..."
                 value={feedSearch}
                 onChange={(e) => setFeedSearch(e.target.value)}
-                className="w-full rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm text-slate-900 placeholder-slate-400 outline-none focus:border-slate-400 focus:ring-2 focus:ring-slate-950/5 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:placeholder-slate-500"
+                className="w-full min-h-[44px] rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm text-slate-900 placeholder-slate-400 outline-none focus:border-slate-400 focus:ring-2 focus:ring-slate-950/5 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:placeholder-slate-500"
               />
             </div>
 
@@ -74,7 +74,7 @@ const CommunityFeed = () => {
               <select
                 value={feedCategory}
                 onChange={(e) => setFeedCategory(e.target.value)}
-                className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-700 outline-none focus:border-slate-400 focus:ring-2 focus:ring-slate-950/5 cursor-pointer dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300"
+                className="w-full sm:w-auto min-h-[44px] rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-700 outline-none focus:border-slate-400 focus:ring-2 focus:ring-slate-950/5 cursor-pointer dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300"
               >
                 <option value="All">All Categories</option>
                 <option value="Video Games">Video Games</option>
@@ -97,18 +97,18 @@ const CommunityFeed = () => {
             </div>
           ) : (
             /* Grid of posts */
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-1 gap-4 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
               {filteredPosts.map((post) => (
                 <article
                   key={post.id}
                   className="flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md dark:border-slate-800 dark:bg-slate-900"
                 >
                   {/* User Info Header */}
-                  <div className="flex items-center gap-3 p-4 border-b border-slate-100 dark:border-slate-800">
+                  <div className="flex items-center gap-3 p-3.5 sm:p-4 border-b border-slate-100 dark:border-slate-800">
                     <img
                       src={post.userAvatar}
                       alt={post.userName}
-                      className="h-10 w-10 rounded-full object-cover bg-slate-100 dark:bg-slate-800"
+                      className="h-10 w-10 rounded-full object-cover bg-slate-100 dark:bg-slate-800 shrink-0"
                       loading="lazy"
                     />
                     <div className="flex flex-col">
@@ -140,7 +140,7 @@ const CommunityFeed = () => {
                   </button>
 
                   {/* Post Content */}
-                  <div className="flex flex-1 flex-col p-5">
+                  <div className="flex flex-1 flex-col p-4 sm:p-5">
                     <div className="flex justify-between items-start gap-2 mb-2">
                       <span className="inline-flex items-center rounded-full bg-slate-100 px-2 py-0.5 text-xs font-semibold text-slate-500 dark:bg-slate-800 dark:text-slate-400">
                         {post.category}
@@ -152,21 +152,21 @@ const CommunityFeed = () => {
                       onClick={() => setSelectedPost(post)}
                       className="text-left focus:outline-none cursor-pointer group"
                     >
-                      <h2 className="text-lg font-bold text-slate-900 line-clamp-1 group-hover:text-slate-700 dark:text-white dark:group-hover:text-slate-300 transition-colors">
+                      <h2 className="text-base sm:text-lg font-bold text-slate-900 line-clamp-1 group-hover:text-slate-700 dark:text-white dark:group-hover:text-slate-300 transition-colors">
                         {post.title}
                       </h2>
                     </button>
-                    <p className="mt-2 text-sm text-slate-600 line-clamp-3 flex-1 dark:text-slate-400">
+                    <p className="mt-2 text-xs sm:text-sm text-slate-600 line-clamp-3 flex-1 dark:text-slate-400">
                       {post.description}
                     </p>
 
                     {/* Engagement Stats */}
-                    <div className="mt-5 flex items-center justify-between border-t border-slate-100 pt-4 dark:border-slate-800">
-                      <div className="flex items-center gap-6">
+                    <div className="mt-4 sm:mt-5 flex items-center justify-between border-t border-slate-100 pt-3 sm:pt-4 dark:border-slate-800">
+                      <div className="flex items-center gap-3 sm:gap-6">
                         <button
                           type="button"
                           onClick={() => likePost(post.id)}
-                          className={`flex items-center gap-2 text-sm transition-colors outline-none cursor-pointer ${
+                          className={`flex items-center gap-1.5 min-h-[44px] px-2 text-sm transition-colors outline-none cursor-pointer ${
                             post.isLiked ? "text-red-500" : "text-slate-500 hover:text-red-500 dark:text-slate-400 dark:hover:text-red-400"
                           }`}
                           aria-label={post.isLiked ? "Unlike post" : "Like post"}
@@ -191,7 +191,7 @@ const CommunityFeed = () => {
                         <button
                           type="button"
                           onClick={() => setSelectedPost(post)}
-                          className="flex items-center gap-2 text-sm text-slate-500 transition-colors hover:text-blue-500 outline-none cursor-pointer dark:text-slate-400 dark:hover:text-blue-400"
+                          className="flex items-center gap-1.5 min-h-[44px] px-2 text-sm text-slate-500 transition-colors hover:text-blue-500 outline-none cursor-pointer dark:text-slate-400 dark:hover:text-blue-400"
                           aria-label="View comments"
                         >
                           <svg
@@ -215,7 +215,7 @@ const CommunityFeed = () => {
                       <button
                         type="button"
                         onClick={() => toggleSavePost(post.id)}
-                        className={`transition-colors outline-none cursor-pointer ${
+                        className={`min-h-[44px] min-w-[44px] flex items-center justify-center p-2 transition-colors outline-none cursor-pointer ${
                           post.isSaved ? "text-indigo-600 dark:text-indigo-400" : "text-slate-400 hover:text-slate-600 dark:text-slate-500 dark:hover:text-slate-300"
                         }`}
                         aria-label={post.isSaved ? "Unsave post" : "Save post"}
@@ -249,14 +249,14 @@ const CommunityFeed = () => {
         const livePost = posts.find((p) => p.id === selectedPost.id) || selectedPost;
         return (
           <div
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm"
+            className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/60 backdrop-blur-sm overflow-y-auto"
             role="dialog"
             aria-modal="true"
             aria-labelledby="post-modal-title"
           >
-            <div className="relative w-full max-w-3xl rounded-2xl bg-white shadow-2xl overflow-hidden border border-slate-200 flex flex-col md:flex-row max-h-[90vh] dark:border-slate-800 dark:bg-slate-900">
+            <div className="relative w-full max-w-3xl rounded-2xl bg-white shadow-2xl overflow-hidden border border-slate-200 flex flex-col md:flex-row max-h-[92vh] my-auto dark:border-slate-800 dark:bg-slate-900">
               {/* Left/Top Image */}
-              <div className="w-full md:w-1/2 bg-slate-50 relative aspect-[4/3] md:aspect-auto dark:bg-slate-800">
+              <div className="w-full md:w-1/2 bg-slate-50 relative aspect-[16/9] sm:aspect-[4/3] md:aspect-auto dark:bg-slate-800 shrink-0">
                 <img
                   src={livePost.image || fallbackImage}
                   alt={livePost.title}
@@ -268,14 +268,14 @@ const CommunityFeed = () => {
               </div>
 
               {/* Right/Bottom Info & Comments */}
-              <div className="p-6 md:p-8 w-full md:w-1/2 flex flex-col justify-between overflow-y-auto">
+              <div className="p-4 sm:p-6 md:p-8 w-full md:w-1/2 flex flex-col justify-between overflow-y-auto">
                 <div className="flex flex-col flex-1">
                   <div className="flex justify-between items-center gap-3">
                     <div className="flex items-center gap-2">
                       <img
                         src={livePost.userAvatar}
                         alt={livePost.userName}
-                        className="h-8 w-8 rounded-full object-cover bg-slate-100 dark:bg-slate-800"
+                        className="h-8 w-8 rounded-full object-cover bg-slate-100 dark:bg-slate-800 shrink-0"
                       />
                       <div className="flex flex-col">
                         <span className="text-xs font-semibold text-slate-900 dark:text-white">
@@ -292,34 +292,34 @@ const CommunityFeed = () => {
                         setSelectedPost(null);
                         setNewCommentText("");
                       }}
-                      className="text-slate-400 hover:text-slate-650 dark:text-slate-500 dark:hover:text-slate-300 text-2xl font-semibold leading-none cursor-pointer"
+                      className="text-slate-400 hover:text-slate-650 dark:text-slate-500 dark:hover:text-slate-300 min-w-[44px] min-h-[44px] flex items-center justify-center text-2xl font-semibold leading-none cursor-pointer"
                       aria-label="Close modal"
                     >
                       &times;
                     </button>
                   </div>
 
-                  <div className="mt-4">
+                  <div className="mt-3 sm:mt-4">
                     <span className="inline-flex items-center rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-semibold text-slate-500 dark:bg-slate-800 dark:text-slate-400">
                       {livePost.category}
                     </span>
                     <h2
                       id="post-modal-title"
-                      className="mt-2 text-lg font-bold text-slate-900 leading-snug dark:text-white"
+                      className="mt-2 text-base sm:text-lg font-bold text-slate-900 leading-snug dark:text-white"
                     >
                       {livePost.title}
                     </h2>
-                    <p className="mt-2 text-sm text-slate-600 leading-relaxed dark:text-slate-400">
+                    <p className="mt-1.5 sm:mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed dark:text-slate-400">
                       {livePost.description}
                     </p>
                   </div>
 
                   {/* Dynamic Comments Section */}
-                  <div className="mt-6 border-t border-slate-100 pt-4 dark:border-slate-800 flex-1">
+                  <div className="mt-4 sm:mt-6 border-t border-slate-100 pt-4 dark:border-slate-800 flex-1">
                     <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3 dark:text-slate-400">
                       Comments ({livePost.comments})
                     </h4>
-                    <div className="space-y-3 max-h-40 overflow-y-auto pr-1">
+                    <div className="space-y-3 max-h-36 sm:max-h-40 overflow-y-auto pr-1">
                       {(livePost.commentsList || []).map((cmt) => (
                         <div key={cmt.id} className="text-xs">
                           <div className="flex justify-between items-center">
@@ -346,18 +346,18 @@ const CommunityFeed = () => {
                       addCommentToPost(livePost.id, newCommentText.trim());
                       setNewCommentText("");
                     }}
-                    className="flex gap-2 mb-4"
+                    className="flex gap-2 mb-3"
                   >
                     <input
                       type="text"
                       placeholder="Write a comment..."
                       value={newCommentText}
                       onChange={(e) => setNewCommentText(e.target.value)}
-                      className="flex-1 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs text-slate-900 placeholder-slate-400 outline-none focus:border-slate-400 dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:placeholder-slate-500"
+                      className="flex-1 min-h-[44px] rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs text-slate-900 placeholder-slate-400 outline-none focus:border-slate-400 dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:placeholder-slate-500"
                     />
                     <button
                       type="submit"
-                      className="rounded-lg bg-slate-950 px-3 py-1.5 text-xs font-semibold text-white hover:bg-slate-800 cursor-pointer dark:bg-slate-100 dark:text-slate-950 dark:hover:bg-slate-200"
+                      className="min-h-[44px] px-4 rounded-lg bg-slate-950 text-xs font-semibold text-white hover:bg-slate-800 cursor-pointer dark:bg-slate-100 dark:text-slate-950 dark:hover:bg-slate-200"
                     >
                       Post
                     </button>
@@ -369,7 +369,7 @@ const CommunityFeed = () => {
                       <button
                         type="button"
                         onClick={() => likePost(livePost.id)}
-                        className={`flex items-center gap-1.5 text-sm transition-colors outline-none cursor-pointer ${
+                        className={`flex items-center gap-1.5 min-h-[44px] text-sm transition-colors outline-none cursor-pointer ${
                           livePost.isLiked ? "text-red-500" : "text-slate-500 hover:text-red-500 dark:text-slate-400 dark:hover:text-red-400"
                         }`}
                       >
@@ -396,8 +396,8 @@ const CommunityFeed = () => {
                     <button
                       type="button"
                       onClick={() => toggleSavePost(livePost.id)}
-                      className={`transition-colors outline-none cursor-pointer ${
-                        livePost.isSaved ? "text-indigo-600" : "text-slate-400 hover:text-slate-600 dark:text-slate-500 dark:hover:text-slate-300"
+                      className={`min-h-[44px] min-w-[44px] flex items-center justify-center transition-colors outline-none cursor-pointer ${
+                        livePost.isSaved ? "text-indigo-600" : "text-slate-400 hover:text-slate-650 dark:text-slate-500 dark:hover:text-slate-300"
                       }`}
                     >
                       <svg

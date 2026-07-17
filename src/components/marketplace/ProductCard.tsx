@@ -81,7 +81,7 @@ const ProductCard = ({
                     <button
                         type="button"
                         onClick={onAddToOwned}
-                        className="flex-1 rounded-lg bg-slate-950 px-4 py-2 text-sm font-semibold text-white outline-none hover:bg-slate-800 focus:ring-2 focus:ring-slate-900/20 cursor-pointer dark:bg-slate-100 dark:text-slate-950 dark:hover:bg-slate-200"
+                        className="flex-1 min-h-[44px] inline-flex items-center justify-center rounded-lg bg-slate-950 px-4 py-2 text-sm font-semibold text-white outline-none hover:bg-slate-800 focus:ring-2 focus:ring-slate-900/20 cursor-pointer dark:bg-slate-100 dark:text-slate-950 dark:hover:bg-slate-200"
                     >
                         Add to Collection
                     </button>
@@ -89,7 +89,7 @@ const ProductCard = ({
                     <button
                         type="button"
                         onClick={onAddToWishlist}
-                        className="flex-1 rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 outline-none hover:bg-slate-50 focus:ring-2 focus:ring-slate-950/20 cursor-pointer dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700"
+                        className="flex-1 min-h-[44px] inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 outline-none hover:bg-slate-50 focus:ring-2 focus:ring-slate-950/20 cursor-pointer dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700"
                     >
                         Wishlist
                     </button>

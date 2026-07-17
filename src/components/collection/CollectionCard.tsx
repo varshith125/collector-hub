@@ -61,7 +61,7 @@ const CollectionCard = ({ item, onRemove, onMove }: CollectionCardProps) => {
 
       {/* Item Details & Actions */}
       <div className="flex-1 p-4 sm:p-5 flex flex-col justify-between">
-        <div className="grid grid-cols-2 gap-4 text-sm">
+        <div className="grid grid-cols-2 gap-3 sm:gap-4 text-xs sm:text-sm">
           {details.map((detail) => (
             <div key={detail.label}>
               <span className="block text-xs font-medium uppercase tracking-wider text-slate-500 dark:text-slate-400">
@@ -81,14 +81,14 @@ const CollectionCard = ({ item, onRemove, onMove }: CollectionCardProps) => {
 
         {/* Card Actions */}
         {(onRemove || onMove) && (
-          <div className="mt-5 border-t border-slate-100 pt-4 flex items-center justify-between gap-2 dark:border-slate-800">
+          <div className="mt-5 border-t border-slate-100 pt-4 flex flex-wrap items-center justify-between gap-2 dark:border-slate-800">
             {onMove && (
-              <div className="flex items-center gap-1.5">
+              <div className="flex items-center gap-1.5 min-h-[44px]">
                 <span className="text-xs text-slate-400 font-medium">Move:</span>
                 <select
                   value={item.collectionType || "Owned"}
                   onChange={(e) => onMove(e.target.value as CollectionType)}
-                  className="rounded border border-slate-200 bg-white px-2 py-1 text-xs text-slate-600 outline-none focus:border-slate-400 cursor-pointer dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300"
+                  className="min-h-[44px] rounded border border-slate-200 bg-white px-2.5 py-1.5 text-xs text-slate-600 outline-none focus:border-slate-400 cursor-pointer dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300"
                 >
                   <option value="Owned">Owned</option>
                   <option value="Wishlist">Wishlist</option>
@@ -101,7 +101,7 @@ const CollectionCard = ({ item, onRemove, onMove }: CollectionCardProps) => {
               <button
                 type="button"
                 onClick={onRemove}
-                className="text-xs font-semibold text-red-500 hover:text-red-700 hover:bg-red-50 px-2 py-1 rounded transition-colors cursor-pointer dark:text-red-400 dark:hover:text-red-300 dark:hover:bg-red-950/20"
+                className="min-h-[44px] min-w-[44px] inline-flex items-center justify-center text-xs font-semibold text-red-500 hover:text-red-700 hover:bg-red-50 px-3 py-1.5 rounded transition-colors cursor-pointer dark:text-red-400 dark:hover:text-red-300 dark:hover:bg-red-950/20"
                 aria-label={`Remove ${item.title} from collection`}
               >
                 Remove

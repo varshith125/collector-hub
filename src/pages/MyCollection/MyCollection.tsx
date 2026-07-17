@@ -59,7 +59,7 @@ const MyCollection = () => {
   }, [tabItems]);
 
   return (
-    <main className="mx-auto flex w-full max-w-7xl flex-col gap-8 px-4 py-8 sm:px-6 lg:px-8">
+    <main className="mx-auto flex w-full max-w-7xl flex-col gap-6 sm:gap-8 px-3 sm:px-6 lg:px-8 py-4 sm:py-8">
       <CollectionHeader />
 
       {collectionLoading ? (
@@ -74,12 +74,12 @@ const MyCollection = () => {
       ) : (
         <>
           {/* Tabs */}
-          <div className="flex border-b border-slate-200 dark:border-slate-800">
+          <div className="flex border-b border-slate-200 dark:border-slate-800 overflow-x-auto no-scrollbar">
             {(["Owned", "Wishlist", "Selling"] as const).map((tab) => (
               <button
                 key={tab}
                 onClick={() => setCollectionTab(tab)}
-                className={`px-6 py-3 text-sm font-semibold border-b-2 transition-colors cursor-pointer ${
+                className={`min-h-[44px] flex-1 sm:flex-initial px-4 sm:px-6 py-3 text-sm font-semibold border-b-2 transition-colors cursor-pointer whitespace-nowrap ${
                   collectionTab === tab
                     ? "border-slate-950 text-slate-950 dark:border-white dark:text-white"
                     : "border-transparent text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200"
@@ -91,22 +91,22 @@ const MyCollection = () => {
           </div>
 
           {/* Search and Filters */}
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <div className="relative flex-1 max-w-md">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <div className="relative flex-1 max-w-full sm:max-w-md">
               <input
                 type="text"
                 placeholder="Search in your collection..."
                 value={collectionSearch}
                 onChange={(e) => setCollectionSearch(e.target.value)}
-                className="w-full rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm text-slate-900 placeholder-slate-400 outline-none focus:border-slate-400 focus:ring-2 focus:ring-slate-950/5 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:placeholder-slate-500"
+                className="w-full min-h-[44px] rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm text-slate-900 placeholder-slate-400 outline-none focus:border-slate-400 focus:ring-2 focus:ring-slate-950/5 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:placeholder-slate-500"
               />
             </div>
 
-            <div className="flex flex-wrap items-center gap-3">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
               <select
                 value={collectionCategory}
                 onChange={(e) => setCollectionCategory(e.target.value)}
-                className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-700 outline-none focus:border-slate-400 cursor-pointer dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300"
+                className="w-full sm:w-auto min-h-[44px] rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-700 outline-none focus:border-slate-400 cursor-pointer dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300"
               >
                 <option value="All">All Categories</option>
                 <option value="Trading Cards">Trading Cards</option>
@@ -122,7 +122,7 @@ const MyCollection = () => {
               <select
                 value={collectionSort}
                 onChange={(e) => setCollectionSort(e.target.value)}
-                className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-700 outline-none focus:border-slate-400 cursor-pointer dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300"
+                className="w-full sm:w-auto min-h-[44px] rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-700 outline-none focus:border-slate-400 cursor-pointer dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300"
               >
                 <option value="newest">Newest Added</option>
                 <option value="value-high-low">Value: High to Low</option>
