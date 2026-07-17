@@ -67,9 +67,9 @@ const MyCollection = () => {
           <div className="h-8 w-8 animate-spin rounded-full border-4 border-slate-200 border-t-slate-900 dark:border-slate-800 dark:border-t-white" />
         </div>
       ) : collectionError ? (
-        <div className="rounded-xl border border-red-205 bg-red-50 p-6 text-center dark:border-red-900/30 dark:bg-red-950/20">
+        <div className="rounded-xl border border-red-200 bg-red-50 p-6 text-center dark:border-red-900/30 dark:bg-red-950/20">
           <h3 className="text-lg font-semibold text-red-900 dark:text-red-400">Failed to load collection</h3>
-          <p className="mt-2 text-sm text-red-650 dark:text-red-350">{collectionError}</p>
+          <p className="mt-2 text-sm text-red-600 dark:text-red-400">{collectionError}</p>
         </div>
       ) : (
         <>

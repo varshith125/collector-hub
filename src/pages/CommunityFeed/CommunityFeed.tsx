@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import type { Post } from "../../types/post";
 import { useApp } from "../../context/AppContext";
 
@@ -18,6 +18,22 @@ const CommunityFeed = () => {
 
   const [selectedPost, setSelectedPost] = useState<Post | null>(null);
   const [newCommentText, setNewCommentText] = useState("");
+
+  useEffect(() => {
+    if (!selectedPost) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setSelectedPost(null);
+        setNewCommentText("");
+      }
+    };
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [selectedPost]);
 
   const filteredPosts = useMemo(() => {
     return posts.filter((post) => {
@@ -52,9 +68,9 @@ const CommunityFeed = () => {
           <div className="h-8 w-8 animate-spin rounded-full border-4 border-slate-200 border-t-slate-900 dark:border-slate-800 dark:border-t-white" />
         </div>
       ) : postsError ? (
-        <div className="rounded-xl border border-red-205 bg-red-50 p-6 text-center dark:border-red-900/30 dark:bg-red-950/20">
+        <div className="rounded-xl border border-red-200 bg-red-50 p-6 text-center dark:border-red-900/30 dark:bg-red-950/20">
           <h3 className="text-lg font-semibold text-red-900 dark:text-red-400">Failed to load feed</h3>
-          <p className="mt-2 text-sm text-red-650 dark:text-red-350">{postsError}</p>
+          <p className="mt-2 text-sm text-red-600 dark:text-red-400">{postsError}</p>
         </div>
       ) : (
         <>
@@ -249,12 +265,18 @@ const CommunityFeed = () => {
         const livePost = posts.find((p) => p.id === selectedPost.id) || selectedPost;
         return (
           <div
-            className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/60 backdrop-blur-sm overflow-y-auto"
+            className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/60 backdrop-blur-sm overflow-y-auto cursor-pointer"
             role="dialog"
             aria-modal="true"
             aria-labelledby="post-modal-title"
+            onClick={(e) => {
+              if (e.target === e.currentTarget) {
+                setSelectedPost(null);
+                setNewCommentText("");
+              }
+            }}
           >
-            <div className="relative w-full max-w-3xl rounded-2xl bg-white shadow-2xl overflow-hidden border border-slate-200 flex flex-col md:flex-row max-h-[92vh] my-auto dark:border-slate-800 dark:bg-slate-900">
+            <div className="relative w-full max-w-3xl rounded-2xl bg-white shadow-2xl overflow-hidden border border-slate-200 flex flex-col md:flex-row max-h-[92vh] my-auto dark:border-slate-800 dark:bg-slate-900 cursor-default" onClick={(e) => e.stopPropagation()}>
               {/* Left/Top Image */}
               <div className="w-full md:w-1/2 bg-slate-50 relative aspect-[16/9] sm:aspect-[4/3] md:aspect-auto dark:bg-slate-800 shrink-0">
                 <img
@@ -292,7 +314,7 @@ const CommunityFeed = () => {
                         setSelectedPost(null);
                         setNewCommentText("");
                       }}
-                      className="text-slate-400 hover:text-slate-650 dark:text-slate-500 dark:hover:text-slate-300 min-w-[44px] min-h-[44px] flex items-center justify-center text-2xl font-semibold leading-none cursor-pointer"
+                      className="text-slate-400 hover:text-slate-600 dark:text-slate-500 dark:hover:text-slate-300 min-w-[44px] min-h-[44px] flex items-center justify-center text-2xl font-semibold leading-none cursor-pointer"
                       aria-label="Close modal"
                     >
                       &times;
@@ -330,7 +352,7 @@ const CommunityFeed = () => {
                         </div>
                       ))}
                       {(livePost.commentsList || []).length === 0 && (
-                        <p className="text-xs text-slate-450 italic dark:text-slate-500">No comments yet. Be the first to comment!</p>
+                        <p className="text-xs text-slate-400 italic dark:text-slate-500">No comments yet. Be the first to comment!</p>
                       )}
                     </div>
                   </div>
