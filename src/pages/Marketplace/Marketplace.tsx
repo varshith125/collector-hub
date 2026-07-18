@@ -1,4 +1,5 @@
 import { useMemo, useState, useEffect } from "react";
+import toast from "react-hot-toast";
 import type { Product } from "../../types/product";
 import MarketplaceHeader from "../../components/marketplace/MarketplaceHeader";
 import MarketplaceToolbar from "../../components/marketplace/MarketplaceToolbar";
@@ -96,6 +97,18 @@ const Marketplace = () => {
         marketCondition,
         marketSort,
     ]);
+
+    useEffect(() => {
+        if (!marketSearch.trim()) return;
+
+        const timer = setTimeout(() => {
+            if (filteredProducts.length === 0) {
+                toast.error("Incorrect name: No item found matching your search");
+            }
+        }, 500);
+
+        return () => clearTimeout(timer);
+    }, [marketSearch, filteredProducts.length]);
 
     return (
         <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 relative">

@@ -1,4 +1,5 @@
 import { useMemo, useState, useEffect } from "react";
+import toast from "react-hot-toast";
 import type { Post } from "../../types/post";
 import { useApp } from "../../context/AppContext";
 
@@ -48,6 +49,18 @@ const CommunityFeed = () => {
       return matchesSearch && matchesCategory;
     });
   }, [posts, feedSearch, feedCategory]);
+
+  useEffect(() => {
+    if (!feedSearch.trim()) return;
+
+    const timer = setTimeout(() => {
+      if (filteredPosts.length === 0) {
+        toast.error("Incorrect name: No item found matching your search");
+      }
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [feedSearch, filteredPosts.length]);
 
   const fallbackImage = "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=500&q=80";
 

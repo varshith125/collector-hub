@@ -1,4 +1,5 @@
-import { useMemo } from "react";
+import { useMemo, useEffect } from "react";
+import toast from "react-hot-toast";
 import CollectionHeader from "../../components/collection/CollectionHeader";
 import CollectionStats from "../../components/collection/CollectionStats";
 import CollectionGrid from "../../components/collection/CollectionGrid";
@@ -50,6 +51,18 @@ const MyCollection = () => {
         return filtered;
     }
   }, [tabItems, collectionSearch, collectionCategory, collectionSort]);
+
+  useEffect(() => {
+    if (!collectionSearch.trim()) return;
+
+    const timer = setTimeout(() => {
+      if (filteredAndSortedItems.length === 0) {
+        toast.error("Incorrect name: No item found matching your search");
+      }
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [collectionSearch, filteredAndSortedItems.length]);
 
   const { totalItems, totalValue } = useMemo(() => {
     return {
