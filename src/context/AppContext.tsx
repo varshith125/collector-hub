@@ -199,30 +199,34 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
 
   // Collection Actions
   const addItemToCollection = (product: Product, type: CollectionType) => {
-    // Prevent duplicates in same collection type
-    const exists = collection.find(
-      (item) => item.title.toLowerCase() === product.title.toLowerCase() && item.collectionType === type
-    );
+    setCollection((prev) => {
+      // Prevent duplicates in same collection type by product ID
+      const exists = prev.some(
+        (item) =>
+          (item.id === product.id || item.id.startsWith(`${product.id}-`)) &&
+          item.collectionType === type
+      );
 
-    if (exists) {
-      toast.error(`"${product.title}" is already in your ${type} collection!`);
-      return;
-    }
+      if (exists) {
+        toast.error(`"${product.title}" is already in your ${type} collection!`);
+        return prev;
+      }
 
-    const newItem: CollectionItem = {
-      id: `${product.id}-${Date.now()}`,
-      title: product.title,
-      image: product.image,
-      category: product.category,
-      condition: product.condition,
-      estimatedValue: product.price,
-      acquiredDate: new Date().toISOString().split("T")[0],
-      location: product.location || "Vault Container",
-      collectionType: type,
-    };
+      const newItem: CollectionItem = {
+        id: `${product.id}-${Date.now()}`,
+        title: product.title,
+        image: product.image,
+        category: product.category,
+        condition: product.condition,
+        estimatedValue: product.price,
+        acquiredDate: new Date().toISOString().split("T")[0],
+        location: product.location || "Vault Container",
+        collectionType: type,
+      };
 
-    setCollection((prev) => [newItem, ...prev]);
-    toast.success(`Added "${product.title}" to ${type} collection.`);
+      toast.success(`Added "${product.title}" to ${type} collection.`);
+      return [newItem, ...prev];
+    });
   };
 
   const removeItemFromCollection = (id: string) => {

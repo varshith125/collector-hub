@@ -439,7 +439,7 @@ const CommunityFeed = () => {
                       type="button"
                       onClick={() => toggleSavePost(livePost.id)}
                       className={`min-h-[44px] min-w-[44px] flex items-center justify-center transition-colors outline-none cursor-pointer ${
-                        livePost.isSaved ? "text-indigo-600" : "text-slate-400 hover:text-slate-650 dark:text-slate-500 dark:hover:text-slate-300"
+                        livePost.isSaved ? "text-indigo-600" : "text-slate-400 hover:text-slate-600 dark:text-slate-500 dark:hover:text-slate-300"
                       }`}
                     >
                       <svg

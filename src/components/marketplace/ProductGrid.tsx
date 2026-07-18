@@ -1,5 +1,6 @@
 import type { Product } from "../../types/product";
 import ProductCard from "./ProductCard";
+import EmptyState from "../common/EmptyState";
 
 interface ProductGridProps {
   products: Product[];
@@ -16,15 +17,10 @@ const ProductGrid = ({
 }: ProductGridProps) => {
   if (products.length === 0) {
     return (
-      <div className="flex flex-col items-center justify-center px-4 py-12 text-center">
-        <h3 className="text-xl font-bold text-slate-900 sm:text-2xl">
-          No collectibles found
-        </h3>
-
-        <p className="mt-2 max-w-sm text-sm text-slate-600 sm:text-base">
-          Try adjusting your search or filters to find more items.
-        </p>
-      </div>
+      <EmptyState
+        title="No collectibles found"
+        description="Try adjusting your search or filters to find more items."
+      />
     );
   }
 

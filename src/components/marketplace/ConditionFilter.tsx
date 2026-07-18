@@ -1,12 +1,5 @@
 import type { ChangeEvent } from "react";
-
-const conditions = [
-  "All",
-  "New",
-  "Like New",
-  "Good",
-  "Fair",
-] as const;
+import { MARKETPLACE_CONDITIONS } from "../../constants/marketplace";
 
 interface ConditionFilterProps {
   value: string;
@@ -32,7 +25,7 @@ const ConditionFilter = ({ value, onChange }: ConditionFilterProps) => {
         onChange={handleConditionChange}
         className="w-full min-h-[44px] rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 outline-none focus:border-slate-950 focus:ring-2 focus:ring-slate-950/20 sm:text-base dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:focus:border-white dark:focus:ring-white/20 cursor-pointer"
       >
-        {conditions.map((condition) => (
+        {MARKETPLACE_CONDITIONS.map((condition) => (
           <option key={condition} value={condition}>
             {condition}
           </option>

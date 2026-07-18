@@ -1,10 +1,5 @@
 import type { ChangeEvent } from "react";
-
-const sortOptions = [
-    { label: "Newest", value: "newest" },
-    { label: "Price: Low to High", value: "price-low-high" },
-    { label: "Price: High to Low", value: "price-high-low" },
-] as const;
+import { MARKETPLACE_SORT_OPTIONS } from "../../constants/marketplace";
 
 interface SortDropdownProps {
     value: string;
@@ -30,7 +25,7 @@ const SortDropdown = ({ value, onChange }: SortDropdownProps) => {
                 onChange={handleSortChange}
                 className="w-full min-h-[44px] rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 outline-none focus:border-slate-950 focus:ring-2 focus:ring-slate-950/20 sm:text-base dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:focus:border-white dark:focus:ring-white/20 cursor-pointer"
             >
-                {sortOptions.map((option) => (
+                {MARKETPLACE_SORT_OPTIONS.map((option) => (
                     <option key={option.value} value={option.value}>
                         {option.label}
                     </option>

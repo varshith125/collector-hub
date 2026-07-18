@@ -1,4 +1,5 @@
 import type { Product } from "../../types/product";
+import { formatCurrency } from "../../utils/formatCurrency";
 
 interface ProductCardProps {
     product: Product;
@@ -58,7 +59,7 @@ const ProductCard = ({
                 </button>
 
                 <span className="mt-1.5 text-xl font-extrabold text-slate-900 dark:text-white">
-                    ₹{product.price.toLocaleString("en-IN")}
+                    {formatCurrency(product.price)}
                 </span>
 
                 <div className="mt-4 flex flex-col gap-1 border-t border-slate-100 pt-4 text-xs text-slate-500 dark:border-slate-800 dark:text-slate-400">

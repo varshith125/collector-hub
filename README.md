@@ -20,7 +20,7 @@ The app is built around three modules:
 ### Marketplace
 *   Browse collectibles in a responsive card grid (image, title, category, condition, price, seller).
 *   Filter by category (Trading Cards, Coins, Comics, Lego, etc.) and condition (New, Like New, Good, Fair).
-*   Search by title, category, or seller. Sort by newest or price.
+*   Search by title. Sort by newest or price.
 *   Click a card to open a detail modal with full item info.
 *   Add items to your collection ("Owned") or "Wishlist" directly from the card or modal.
 *   Filter state persists across page navigation.
@@ -48,7 +48,7 @@ The app is built around three modules:
 *   **Routing**: [React Router DOM v7](https://reactrouter.com/)
 *   **Data Fetching**: [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) (loads JSON from `public/data/`)
 *   **State**: React Context API + `localStorage` persistence
-*   **Icons**: [React Icons](https://react-icons.github.io/react-icons/)
+*   **Icons**: SVG Icons
 *   **Toasts**: [React Hot Toast](https://react-hot-toast.com/)
 
 ---
@@ -146,7 +146,7 @@ collector-hub/
 *   **No Backend**: Data is loaded via `fetch()` from static JSON files in `public/data/`. There is no server or database.
 *   **localStorage Persistence**: All user actions (collection changes, likes, bookmarks, theme preference) persist in `localStorage`. No authentication is implemented.
 *   **Strict TypeScript**: The codebase is fully typed with dedicated interfaces for all data models.
-*   **INR Currency**: Prices default to Indian Rupees (₹) using `Intl.NumberFormat`.
+*   **INR Currency**: Prices default to Indian Rupees (₹) using `toLocaleString("en-IN")`.
 
 ---
 
@@ -157,7 +157,7 @@ collector-hub/
 | `react`, `react-dom` | Core UI framework |
 | `react-router-dom` | Client-side routing |
 | `react-hot-toast` | Toast notifications |
-| `react-icons` | Icon components (theme toggle, likes, bookmarks) |
+| SVG Icons | Icon graphics (theme toggle, likes, bookmarks) |
 | `tailwindcss`, `@tailwindcss/vite` | Utility-first CSS framework + Vite plugin |
 
 ---
