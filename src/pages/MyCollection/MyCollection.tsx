@@ -53,10 +53,10 @@ const MyCollection = () => {
 
   const { totalItems, totalValue } = useMemo(() => {
     return {
-      totalItems: tabItems.length,
-      totalValue: tabItems.reduce((sum, item) => sum + item.estimatedValue, 0),
+      totalItems: filteredAndSortedItems.length,
+      totalValue: filteredAndSortedItems.reduce((sum, item) => sum + item.estimatedValue, 0),
     };
-  }, [tabItems]);
+  }, [filteredAndSortedItems]);
 
   return (
     <main className="mx-auto flex w-full max-w-7xl flex-col gap-6 sm:gap-8 px-3 sm:px-6 lg:px-8 py-4 sm:py-8">
