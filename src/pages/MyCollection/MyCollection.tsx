@@ -53,11 +53,18 @@ const MyCollection = () => {
   }, [tabItems, collectionSearch, collectionCategory, collectionSort]);
 
   useEffect(() => {
-    if (!collectionSearch.trim()) return;
+    if (!collectionSearch.trim()) {
+      toast.dismiss("search-error-toast");
+      return;
+    }
 
     const timer = setTimeout(() => {
       if (filteredAndSortedItems.length === 0) {
-        toast.error("Incorrect name: No item found matching your search");
+        toast.error("Incorrect name: No item found matching your search", {
+          id: "search-error-toast",
+        });
+      } else {
+        toast.dismiss("search-error-toast");
       }
     }, 500);
 

@@ -99,11 +99,18 @@ const Marketplace = () => {
     ]);
 
     useEffect(() => {
-        if (!marketSearch.trim()) return;
+        if (!marketSearch.trim()) {
+            toast.dismiss("search-error-toast");
+            return;
+        }
 
         const timer = setTimeout(() => {
             if (filteredProducts.length === 0) {
-                toast.error("Incorrect name: No item found matching your search");
+                toast.error("Incorrect name: No item found matching your search", {
+                    id: "search-error-toast",
+                });
+            } else {
+                toast.dismiss("search-error-toast");
             }
         }, 500);
 
