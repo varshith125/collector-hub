@@ -4,6 +4,12 @@ A responsive web application for collectors to discover collectible items throug
 
 ---
 
+## 🚀 Live Demo
+
+**Live Application:** https://collector-hub-gamma.vercel.app/
+
+---
+
 ## Project Overview
 
 Collector Hub is a single-page application where users can browse collectible items, engage with community posts, and organize their personal collection — all within a clean, responsive interface.
@@ -207,19 +213,6 @@ Built with Tailwind's mobile-first breakpoints (`sm:`, `md:`, `lg:`, `xl:`):
 *   Add user authentication and per-user collections.
 *   Support image uploads via a cloud service like Cloudinary.
 *   Implement checkout/contact-seller flows in the marketplace.
-
----
-
-## Screenshots
-
-### Marketplace
-*Screenshot: Marketplace grid with filters, search, and item detail modal*
-
-### Community Feed
-*Screenshot: Community feed with post cards, likes, and comments modal*
-
-### My Collection
-*Screenshot: Collection tabs (Owned / Wishlist / Selling) with stats and item management*
 
 ---
 
