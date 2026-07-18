@@ -9,6 +9,9 @@ import { formatCurrency } from "../../utils/formatCurrency";
 
 const Marketplace = () => {
     const {
+        products,
+        productsLoading: loading,
+        productsError: error,
         marketSearch,
         setMarketSearch,
         marketCategory,
@@ -21,28 +24,6 @@ const Marketplace = () => {
     } = useApp();
 
     const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-    const [products, setProducts] = useState<Product[]>([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState<string | null>(null);
-
-    useEffect(() => {
-        fetch("/data/marketplaceProducts.json")
-            .then((res) => {
-                if (!res.ok) {
-                    throw new Error(`Failed to fetch marketplace products: ${res.statusText}`);
-                }
-                return res.json() as Promise<Product[]>;
-            })
-            .then((data) => {
-                setProducts(data);
-                setLoading(false);
-            })
-            .catch((err) => {
-                console.error(err);
-                setError(err instanceof Error ? err.message : "An error occurred");
-                setLoading(false);
-            });
-    }, []);
 
     useEffect(() => {
         if (!selectedProduct) return;

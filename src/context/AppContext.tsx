@@ -7,6 +7,9 @@ import type { Post, Comment } from "../types/post";
 import toast from "react-hot-toast";
 
 interface AppContextType {
+  products: Product[];
+  productsLoading: boolean;
+  productsError: string | null;
   collection: CollectionItem[];
   collectionLoading: boolean;
   collectionError: string | null;
@@ -77,6 +80,11 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
     }
   }, [theme]);
 
+  // Marketplace products state
+  const [products, setProducts] = useState<Product[]>([]);
+  const [productsLoading, setProductsLoading] = useState(true);
+  const [productsError, setProductsError] = useState<string | null>(null);
+
   // Collection state
   const [collection, setCollection] = useState<CollectionItem[]>([]);
   const [collectionLoading, setCollectionLoading] = useState(true);
@@ -86,6 +94,26 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
   const [posts, setPosts] = useState<Post[]>([]);
   const [postsLoading, setPostsLoading] = useState(true);
   const [postsError, setPostsError] = useState<string | null>(null);
+
+  // Fetch marketplace products
+  useEffect(() => {
+    fetch("/data/marketplaceProducts.json")
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`Failed to fetch marketplace products: ${res.statusText}`);
+        }
+        return res.json() as Promise<Product[]>;
+      })
+      .then((data) => {
+        setProducts(data);
+        setProductsLoading(false);
+      })
+      .catch((err) => {
+        console.error(err);
+        setProductsError(err instanceof Error ? err.message : "An error occurred");
+        setProductsLoading(false);
+      });
+  }, []);
 
   // Fetch collection items and merge with local storage
   useEffect(() => {
@@ -308,6 +336,9 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
   return (
     <AppContext.Provider
       value={{
+        products,
+        productsLoading,
+        productsError,
         collection,
         collectionLoading,
         collectionError,
