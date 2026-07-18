@@ -107,7 +107,7 @@ function App() {
   return (
     <AppProvider>
       <AppContent />
-      <Toaster position="bottom-right" />
+      <Toaster position="top-center" />
     </AppProvider>
   );
 }
